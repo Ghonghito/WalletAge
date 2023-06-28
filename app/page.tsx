@@ -4,7 +4,7 @@ import LoadingTable from '@/components/Table/LoadingTable'
 import { getWalletAge } from '@/utils'
 import { useState } from 'react'
 
-const page = () => {
+const Home = () => {
   const [resultData, setResultData] = useState<any>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [errorData, setErrorData] = useState<string>('')
@@ -43,4 +43,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Home
