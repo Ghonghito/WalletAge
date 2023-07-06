@@ -9,7 +9,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
     tags: ['Etheruem', 'Mainnet'],
     api_url: 'https://api.etherscan.io',
-    api_key: process.env.NEXT_PUBLIC_ETHERSCAN_KEY,
+    api_key: process.env.ETHERSCAN_KEY,
   },
   {
     id: 5,
@@ -21,7 +21,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
     tags: ['Etheruem', 'Testnet', 'Goerli'],
     api_url: 'https://api-goerli.etherscan.io',
-    api_key: process.env.NEXT_PUBLIC_ETHERSCAN_KEY,
+    api_key: process.env.ETHERSCAN_KEY,
   },
   {
     id: 11155111,
@@ -33,7 +33,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
     tags: ['Etheruem', 'Testnet', 'Sepolia'],
     api_url: 'https://api-sepolia.etherscan.io',
-    api_key: process.env.NEXT_PUBLIC_ETHERSCAN_KEY,
+    api_key: process.env.ETHERSCAN_KEY,
   },
   {
     id: 56,
@@ -45,7 +45,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
     tags: ['BNB Chain', 'Mainnet'],
     api_url: 'https://api.bscscan.com',
-    api_key: process.env.NEXT_PUBLIC_BSCSCAN_KEY,
+    api_key: process.env.BSCSCAN_KEY,
   },
   {
     id: 97,
@@ -57,7 +57,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
     tags: ['BNB Chain', 'Testnet'],
     api_url: 'https://api-testnet.bscscan.com',
-    api_key: process.env.NEXT_PUBLIC_BSCSCAN_KEY,
+    api_key: process.env.BSCSCAN_KEY,
   },
   {
     id: 10,
@@ -69,7 +69,7 @@ export const explorersList = [
     logo: 'https://optimistic.etherscan.io/images/favicon.ico',
     tags: ['Optimism', 'Mainnet'],
     api_url: 'https://api-goerli-optimism.etherscan.io',
-    api_key: process.env.NEXT_PUBLIC_OPTIMISM_KEY,
+    api_key: process.env.OPTIMISM_KEY,
   },
   {
     id: 420,
@@ -81,7 +81,7 @@ export const explorersList = [
     logo: 'https://optimistic.etherscan.io/images/favicon.ico',
     tags: ['Optimism', 'Testnet'],
     api_url: 'https://api-goerli-optimism.etherscan.io',
-    api_key: process.env.NEXT_PUBLIC_OPTIMISM_KEY,
+    api_key: process.env.OPTIMISM_KEY,
   },
   {
     id: 42161,
@@ -93,7 +93,7 @@ export const explorersList = [
     logo: 'https://arbiscan.io/images/favicon.ico',
     tags: ['Arbitrum', 'Mainnet'],
     api_url: 'https://api.arbiscan.io',
-    api_key: process.env.NEXT_PUBLIC_ARBITRUM_KEY,
+    api_key: process.env.ARBITRUM_KEY,
   },
   {
     id: 421613,
@@ -105,7 +105,7 @@ export const explorersList = [
     logo: 'https://arbiscan.io/images/favicon.ico',
     tags: ['Arbitrum', 'Testnet'],
     api_url: 'https://api-goerli.arbiscan.io',
-    api_key: process.env.NEXT_PUBLIC_ARBITRUM_KEY,
+    api_key: process.env.ARBITRUM_KEY,
   },
   {
     id: 137,
@@ -117,7 +117,7 @@ export const explorersList = [
     logo: 'https://polygonscan.com/images/favicon.ico',
     tags: ['Polygon', 'Mainnet'],
     api_url: 'https://api.polygonscan.com',
-    api_key: process.env.NEXT_PUBLIC_POLYGON_KEY,
+    api_key: process.env.POLYGON_KEY,
   },
   {
     id: 1101,
@@ -129,7 +129,7 @@ export const explorersList = [
     logo: 'https://polygonscan.com/images/favicon.ico',
     tags: ['Polygon', 'Mainnet', 'zkEVM'],
     api_url: 'https://api-zkevm.polygonscan.com',
-    api_key: process.env.NEXT_PUBLIC_POLYGON_KEY,
+    api_key: process.env.POLYGON_KEY,
   },
   {
     id: 80001,
@@ -141,7 +141,7 @@ export const explorersList = [
     logo: 'https://polygonscan.com/images/favicon.ico',
     tags: ['Polygon', 'Testnet'],
     api_url: 'https://api-testnet.polygonscan.com',
-    api_key: process.env.NEXT_PUBLIC_POLYGON_KEY,
+    api_key: process.env.POLYGON_KEY,
   },
   {
     id: 1442,
@@ -153,7 +153,7 @@ export const explorersList = [
     logo: 'https://polygonscan.com/images/favicon.ico',
     tags: ['Polygon', 'Testnet', 'zkEVM'],
     api_url: 'https://api-testnet-zkevm.polygonscan.com',
-    api_key: process.env.NEXT_PUBLIC_POLYGON_KEY,
+    api_key: process.env.POLYGON_KEY,
   },
   {
     id: 43114,
@@ -165,7 +165,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/5805.png',
     tags: ['Avalanche', 'Mainnet'],
     api_url: 'https://api.snowtrace.io',
-    api_key: process.env.NEXT_PUBLIC_SNOWTRACE_KEY,
+    api_key: process.env.SNOWTRACE_KEY,
   },
   {
     id: 43113,
@@ -177,7 +177,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/5805.png',
     tags: ['Avalanche', 'Testnet'],
     api_url: 'https://api-testnet.snowtrace.io',
-    api_key: process.env.NEXT_PUBLIC_SNOWTRACE_KEY,
+    api_key: process.env.SNOWTRACE_KEY,
   },
   {
     id: 250,
@@ -189,7 +189,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3513.png',
     tags: ['Fantom', 'Mainnet'],
     api_url: 'https://api.ftmscan.com',
-    api_key: process.env.NEXT_PUBLIC_FTMSCAN_KEY,
+    api_key: process.env.FTMSCAN_KEY,
   },
   {
     id: 4002,
@@ -201,7 +201,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3513.png',
     tags: ['Fantom', 'Testnet'],
     api_url: 'https://api-testnet.ftmscan.com',
-    api_key: process.env.NEXT_PUBLIC_FTMSCAN_KEY,
+    api_key: process.env.FTMSCAN_KEY,
   },
   {
     id: 25,
@@ -213,7 +213,7 @@ export const explorersList = [
     logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3635.png',
     tags: ['Cronos', 'Mainnet'],
     api_url: 'https://api.cronoscan.com',
-    api_key: process.env.NEXT_PUBLIC_CRONOSCAN_KEY,
+    api_key: process.env.CRONOSCAN_KEY,
   },
   {
     id: 84531,

@@ -3,7 +3,7 @@ import MultiCustomSelect from '@/components/Select'
 import ResultTable from '@/components/Table'
 import LoadingTable from '@/components/Table/LoadingTable'
 import { explorersList } from '@/explorers'
-import { getWalletAge } from '@/utils'
+import { checkAge } from '@/utils'
 import { useState } from 'react'
 
 const Home = () => {
@@ -28,12 +28,10 @@ const Home = () => {
     }
 
     const selectedChains = explorersList.filter((x) => selected.includes(x.name))
-    console.log(selectedChains)
 
     if (walletAddress !== '') {
       setIsLoading(true)
-      const data = await getWalletAge(selectedChains, walletAddress)
-      console.log(data)
+      const data = await checkAge(selectedChains, walletAddress)
       setResultData(data)
       setIsLoading(false)
     } else {

@@ -42,10 +42,7 @@ const MultiCustomSelect = ({ data, labelKey, hasLogo, logoKey, selectedItems, se
             </Listbox.Button>
             <Listbox.Options className='divider absolute z-50 mt-1 max-h-48 w-full bg-background overflow-y-auto rounded-md duration-150 border-[1px] border-border bg-darkBackground text-base shadow-lg focus:outline-none sm:text-sm'>
               {data.map((item: any, index: any) => (
-                <Listbox.Option
-                  key={index}
-                  value={item[labelKey]}
-                  className={({ active }) => classNames(active ? 'hover:bg-darkHover duration-150 text-lightText dark:text-darkText' : 'text-gray-900', ' select-none cursor-pointer')}>
+                <Listbox.Option key={index} value={item[labelKey]} className={({ active }) => classNames(active ? 'hover:bg-darkHover duration-150 text-lightText dark:text-darkText' : 'text-gray-900', ' select-none cursor-pointer')}>
                   <div className='py-2 pl-3 pr-9'>
                     <div className='flex items-center'>
                       {hasLogo && <Image src={renderLogo(item)} alt='logo' width={20} height={20} className='flex-shrink-0 rounded-full' />}
