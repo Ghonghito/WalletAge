@@ -32,7 +32,6 @@ const Home = () => {
     if (walletAddress !== '') {
       setIsLoading(true)
       const data = await checkAge(selectedChains, walletAddress)
-      console.log(data)
       setResultData(data)
       setIsLoading(false)
     } else {
