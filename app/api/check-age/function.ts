@@ -23,9 +23,11 @@ export const getWalletAge = async (chainName: any, walletAddress: any) => {
       const lastTx = data.data.result[data.data.result.length - 1]
       const lastTxDate = toDate(Number(lastTx.timeStamp) * 1000)
       const age = calculateAge(Number(lastTx.timeStamp))
-      return { address, totalTx, lastTx, age, lastTxDate, chainData: chain[0] }
+      return { status: 200, address, totalTx, lastTx, age, lastTxDate, chainData: chain[0] }
     } else {
       return { address: walletAddress, totalTx: 0, lastTx: [], age: 0, lastTxDate: '', chainData: chain[0] }
     }
+  } else {
+    return { status: 404, walletAddress, totalTx: 0, lastTx: [], age: 0, lastTxDate: '', chainData: chain[0] }
   }
 }
