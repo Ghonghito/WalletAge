@@ -1,6 +1,6 @@
 const LoadingTable = () => {
   return (
-    <div className='px-2 w-full md:w-[650px]'>
+    <div className='p-2 w-full md:w-[650px]'>
       <div className='overflow-y-auto rounded-lg bg-card'>
         <table className='border-collapse table-auto w-full text-sm text-left border border-border rounded-lg '>
           <thead className='text-gray-500 text-xs'>
