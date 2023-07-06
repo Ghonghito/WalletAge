@@ -1,10 +1,14 @@
 'use client'
+import MultiCustomSelect from '@/components/Select'
 import ResultTable from '@/components/Table'
 import LoadingTable from '@/components/Table/LoadingTable'
+import { explorersList } from '@/explorers'
 import { getWalletAge } from '@/utils'
 import { useState } from 'react'
 
 const Home = () => {
+  const chains = explorersList.filter((x) => x.isMainnet === true)
+  const [selected, setSelected] = useState<any>([chains[0].name])
   const [resultData, setResultData] = useState<any>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [errorData, setErrorData] = useState<string>('')
@@ -12,9 +16,24 @@ const Home = () => {
   const getData = async () => {
     const walletAddress = (document.getElementById('walletAddress') as HTMLInputElement).value
     setErrorData('')
+
+    if (selected.length === 0) {
+      setErrorData('Chain is not specified')
+      return
+    }
+
+    if (walletAddress === '') {
+      setErrorData('Wallet address is not specified')
+      return
+    }
+
+    const selectedChains = explorersList.filter((x) => selected.includes(x.name))
+    console.log(selectedChains)
+
     if (walletAddress !== '') {
       setIsLoading(true)
-      const data = await getWalletAge(walletAddress)
+      const data = await getWalletAge(selectedChains, walletAddress)
+      console.log(data)
       setResultData(data)
       setIsLoading(false)
     } else {
@@ -22,23 +41,23 @@ const Home = () => {
     }
   }
   return (
-    <div className='flex flex-col items-center justify-center mt-5'>
-      <div className='mb-4'>
-        <h1 className='text-lg lg:text-xl text-white font-extrabold text-center'>Check the age of the wallet on multiple blockchains</h1>
-      </div>
-      <div className='px-2 w-full md:w-[650px]'>
-        <div className='relative w-full'>
-          <input type='search' id='walletAddress' className='p-2.5 w-full z-20 text-sm text-white bg-card rounded-r-lg rounded-l-lg border border-border focus:outline-none' placeholder='Search address' required />
-          <button onClick={() => getData()} type='submit' className='absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-primary rounded-r-lg border border-primary hover:bg-primary/70 focus:outline-none'>
-            <svg aria-hidden='true' className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path>
-            </svg>
-            <span className='sr-only'>Search</span>
-          </button>
+    <div className=' mt-3'>
+      <div className='flex flex-col items-center justify-center'>
+        <div className='px-2 w-full md:w-[650px] space-y-2'>
+          {errorData !== '' && <div className='text-red-600 text-center'>{errorData}</div>}
+          <MultiCustomSelect data={chains} labelKey='name' hasLogo={true} logoKey='logo' selectedItems={selected} setSelected={setSelected} />
+          <div className='relative w-full'>
+            <input type='search' id='walletAddress' className='p-2.5 w-full z-20 text-sm text-white bg-card rounded-r-lg rounded-l-lg border border-border focus:outline-none' placeholder='Search address' required />
+            <button onClick={() => getData()} type='submit' className='absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-primary rounded-r-lg border border-primary hover:bg-primary/70 focus:outline-none'>
+              <svg aria-hidden='true' className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path>
+              </svg>
+              <span className='sr-only'>Search</span>
+            </button>
+          </div>
         </div>
+        {isLoading ? <LoadingTable /> : <ResultTable data={resultData} />}
       </div>
-      {errorData !== null && <p className='text-sm text-red-500 mt-2'>{errorData}</p>}
-      {isLoading ? <LoadingTable /> : <ResultTable data={resultData} />}
     </div>
   )
 }

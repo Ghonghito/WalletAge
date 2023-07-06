@@ -8,7 +8,7 @@ interface ResultTableTypes {
 
 const ResultTable = ({ data }: ResultTableTypes) => {
   return (
-    <div className='p-2 w-full md:w-[650px]'>
+    <div className='px-2 mt-2 w-full md:w-[650px]'>
       {Object.keys(data).length > 0 && (
         <div className='overflow-y-auto bg-card border border-border rounded-lg'>
           <table className='border-collapse table-auto w-full text-sm text-left '>

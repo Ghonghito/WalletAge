@@ -16,9 +16,9 @@ export const calculateAge = (timestamp: number) => {
   return daysDifference
 }
 
-export const getWalletAge = async (walletAddress: string) => {
+export const getWalletAge = async (chains: any, walletAddress: string) => {
   let walletData: any = []
-  for (const chain of explorersList) {
+  for (const chain of chains) {
     const data = await axios
       .get(`${chain.api_url}/api?module=account&action=txlist&address=${walletAddress}&startblock=0&endblock=99999999&page=1&offset=10000&sort=desc&apikey=${chain.api_key}`)
       .then((response) => response)
@@ -32,6 +32,8 @@ export const getWalletAge = async (walletAddress: string) => {
         const lastTxDate = toDate(Number(lastTx.timeStamp) * 1000)
         const age = calculateAge(Number(lastTx.timeStamp))
         walletData.push({ address, totalTx, lastTx, age, lastTxDate, chainData: chain })
+      } else {
+        walletData.push({ address: walletAddress, totalTx: 0, lastTx: [], age: 0, lastTxDate: '', chainData: chain })
       }
     }
   }
