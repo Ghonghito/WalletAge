@@ -33,9 +33,9 @@ const ResultTable = ({ data }: ResultTableTypes) => {
                 <tr key={index} className='w-full rounded-lg hover:bg-background'>
                   <td className='px-6 py-4'>
                     <div className='flex items-center gap-2'>
-                      <Image src={x.chainData.logo} alt={x.chainData.name} width='20' height='20' className='rounded-full' />
-                      <Link href={`${x.chainData.url}/address/${x.address}`} target='_blank' className='hover:underline decoration-whiteText'>
-                        <p className='text-whiteText whitespace-nowrap'>{x.chainData.name}</p>
+                      <Image src={x.chainData.chain_logo} alt={x.chainData.chain_name} width='20' height='20' className='rounded-full' />
+                      <Link href={`${x.chainData.explorers.mainnet.url}/address/${x.address}`} target='_blank' className='hover:underline decoration-whiteText'>
+                        <p className='text-whiteText whitespace-nowrap'>{x.chainData.chain_name}</p>
                       </Link>
                     </div>
                   </td>
@@ -46,7 +46,7 @@ const ResultTable = ({ data }: ResultTableTypes) => {
                     <p className='text-whiteText whitespace-nowrap'>{x.totalTx}</p>
                   </td>
                   <td className='px-6 py-4'>
-                    <Link href={`${x.chainData.url}/tx/${x.lastTx.hash}`} target='_blank' className='hover:underline decoration-primary'>
+                    <Link href={`${x.chainData.explorers.mainnet.url}/tx/${x.lastTx.hash}`} target='_blank' className='hover:underline decoration-primary'>
                       <p className='text-primary whitespace-nowrap'>{shortAddress(x.lastTx.hash, 5)}</p>
                     </Link>
                   </td>

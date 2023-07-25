@@ -1,9 +1,9 @@
-import { explorersList } from '@/explorers'
+import Logo from '@/assets/logo.svg'
+import { chainListData } from '@/explorers'
 import Image from 'next/image'
-import Logo from '../../assets/logo.svg'
 
 const Header = () => {
-  const mainnetChains = explorersList.filter((x) => x.isMainnet === true)
+  const mainnetChains = chainListData.filter((x) => x.mainnet_configuration !== null)
 
   return (
     <div>
@@ -20,7 +20,7 @@ const Header = () => {
             <p className='text-white text-sm'>Supported Chains:</p>
             <div className='flex items-center gap-1'>
               {mainnetChains.map((x) => (
-                <Image src={x.logo} width={15} height={15} alt={x.name} key={x.name} className='rounded-full' title={x.name} />
+                <Image src={x.chain_logo} width={15} height={15} alt={x.chain_name} key={x.chain_name} className='rounded-full' title={x.chain_name} />
               ))}
             </div>
           </div>
@@ -30,7 +30,7 @@ const Header = () => {
         <div className='duration-150 border-b border-border'></div>
         <div className='flex items-center justify-between py-3 px-5'>
           {mainnetChains.map((x) => (
-            <Image src={x.logo} width={15} height={15} alt={x.name} key={x.name} className='rounded-full' title={x.name} />
+            <Image src={x.chain_logo} width={15} height={15} alt={x.chain_name} key={x.chain_name} className='rounded-full' title={x.chain_name} />
           ))}
         </div>
       </div>

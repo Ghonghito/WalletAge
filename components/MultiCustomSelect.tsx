@@ -1,6 +1,6 @@
-import { ArrowDownIcon } from '@/components/Icons'
 import { Listbox } from '@headlessui/react'
 import Image from 'next/image'
+import { ArrowDownIcon } from './Icons'
 
 interface Types {
   data: any

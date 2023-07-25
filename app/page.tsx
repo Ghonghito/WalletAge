@@ -1,14 +1,14 @@
 'use client'
-import MultiCustomSelect from '@/components/Select'
+import MultiCustomSelect from '@/components/MultiCustomSelect'
 import ResultTable from '@/components/Table'
 import LoadingTable from '@/components/Table/LoadingTable'
-import { explorersList } from '@/explorers'
+import { chainListData } from '@/explorers'
 import { checkAge } from '@/utils'
 import { useState } from 'react'
 
 const Home = () => {
-  const chains = explorersList.filter((x) => x.isMainnet === true)
-  const [selected, setSelected] = useState<any>([chains[0].name])
+  const chains = chainListData.filter((x) => x.mainnet_configuration !== null)
+  const [selected, setSelected] = useState<any>([chains[0].chain_name])
   const [resultData, setResultData] = useState<any>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [errorData, setErrorData] = useState<string>('')
@@ -27,8 +27,7 @@ const Home = () => {
       return
     }
 
-    const selectedChains = explorersList.filter((x) => selected.includes(x.name))
-
+    const selectedChains = chainListData.filter((x) => selected.includes(x.chain_name))
     if (walletAddress !== '') {
       setIsLoading(true)
       const data = await checkAge(selectedChains, walletAddress)
@@ -38,12 +37,13 @@ const Home = () => {
       setErrorData('Wallet address is not specified')
     }
   }
+  
   return (
     <div className=' mt-3'>
       <div className='flex flex-col items-center justify-center'>
         <div className='px-2 w-full md:w-[650px] space-y-2'>
           {errorData !== '' && <div className='text-red-600 text-center'>{errorData}</div>}
-          <MultiCustomSelect data={chains} labelKey='name' hasLogo={true} logoKey='logo' selectedItems={selected} setSelected={setSelected} />
+          <MultiCustomSelect data={chains} labelKey='chain_name' hasLogo={true} logoKey='chain_logo' selectedItems={selected} setSelected={setSelected} />
           <div className='relative w-full'>
             <input type='search' id='walletAddress' className='p-2.5 w-full z-20 text-sm text-white bg-card rounded-r-lg rounded-l-lg border border-border focus:outline-none' placeholder='Search address' required />
             <button onClick={() => getData()} type='submit' className='absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-primary rounded-r-lg border border-primary hover:bg-primary/70 focus:outline-none'>

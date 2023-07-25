@@ -20,35 +20,7 @@ const LoadingTable = () => {
             <tr className='w-full rounded-lg'>
               <td className='px-6 py-4'>
                 <div className='flex items-center gap-1'>
-                  <div className='w-[16px] h-[16px] animate-pulse bg-gray-500 rounded-full' />
-                  <p className='animate-pulse bg-gray-500 w-48 h-3 rounded-lg'></p>
-                </div>
-              </td>
-              <td className='px-6 py-4'>
-                <p className='animate-pulse bg-gray-500 w-32 h-3 rounded-lg'></p>
-              </td>
-              <td className='px-6 py-4'>
-                <p className='animate-pulse bg-gray-500 w-32 h-3 rounded-lg'></p>
-              </td>
-            </tr>
-            <tr className='w-full rounded-lg'>
-              <td className='px-6 py-4'>
-                <div className='flex items-center gap-1'>
-                  <div className='w-[16px] h-[16px] animate-pulse bg-gray-500 rounded-full' />
-                  <p className='animate-pulse bg-gray-500 w-48 h-3 rounded-lg'></p>
-                </div>
-              </td>
-              <td className='px-6 py-4'>
-                <p className='animate-pulse bg-gray-500 w-32 h-3 rounded-lg'></p>
-              </td>
-              <td className='px-6 py-4'>
-                <p className='animate-pulse bg-gray-500 w-32 h-3 rounded-lg'></p>
-              </td>
-            </tr>
-            <tr className='w-full rounded-lg'>
-              <td className='px-6 py-4'>
-                <div className='flex items-center gap-1'>
-                  <div className='w-[16px] h-[16px] animate-pulse bg-gray-500 rounded-full' />
+                  <div className='w-[20px] h-[20px] animate-pulse bg-gray-500 rounded-full' />
                   <p className='animate-pulse bg-gray-500 w-48 h-3 rounded-lg'></p>
                 </div>
               </td>

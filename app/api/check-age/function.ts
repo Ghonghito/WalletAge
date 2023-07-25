@@ -1,4 +1,4 @@
-import { explorersList } from '@/explorers'
+import { chainListData } from '@/explorers'
 import axios from 'axios'
 import { differenceInDays, toDate } from 'date-fns'
 
@@ -9,10 +9,9 @@ export const calculateAge = (timestamp: number) => {
 }
 
 export const getWalletAge = async (chainName: any, walletAddress: any) => {
-  const chain = explorersList.filter((x) => x.name === chainName)
-
+  const chain = chainListData.filter((x) => x.chain_name === chainName)
   const data = await axios
-    .get(`${chain[0].api_url}/api?module=account&action=txlist&address=${walletAddress}&startblock=0&endblock=99999999&page=1&offset=10000&sort=desc&apikey=${chain[0].api_key}`)
+    .get(`${chain[0].explorers.mainnet.api_url}/api?module=account&action=txlist&address=${walletAddress}&startblock=0&endblock=99999999&page=1&offset=10000&sort=desc&apikey=${chain[0].explorers.mainnet.api_key}`)
     .then((response) => response)
     .catch((error) => error.response)
 
