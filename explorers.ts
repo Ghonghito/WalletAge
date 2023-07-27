@@ -502,4 +502,58 @@ export const chainListData = [
       moralisId: null,
     },
   },
+  {
+    id: 'optimism',
+    chain_type: 'evm',
+    chain_supported: false,
+    chain_airdrop: false,
+    chain_name: 'Optimism',
+    chain_symbol: 'OP',
+    chain_logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/11840.png',
+    chain_coin: {
+      name: 'Etherem',
+      symbol: 'ETH',
+      decimals: 18,
+      logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/11840.png',
+      wrapped_address: '',
+    },
+    mainnet_configuration: {
+      name: 'Optimism',
+      rpc: 'https://mainnet.optimism.io',
+      id: 10,
+      hex: '0xa',
+      symbol: 'ETH',
+      explorer: 'https://optimistic.etherscan.io/',
+    },
+    testnet_configuration: [
+      {
+        name: 'Optimism Goerli',
+        rpc: 'https://goerli.optimism.io',
+        id: 420,
+        hex: '0x1a4',
+        symbol: 'ETH',
+        explorer: 'https://goerli-optimism.etherscan.io',
+      },
+    ],
+    explorers: {
+      mainnet: {
+        name: 'Optimistic Etherscan',
+        url: 'https://optimistic.etherscan.io/',
+        logo: 'https://optimistic.etherscan.io/images/favicon.ico?v=23.07.02.2',
+        api_url: 'https://api-optimistic.etherscan.io',
+        api_key: process.env.OPTIMISM_KEY,
+      },
+      testnet: {
+        name: 'Optimistic Etherscan Goerli',
+        url: 'https://goerli-optimism.etherscan.io/',
+        logo: 'https://optimistic.etherscan.io/images/favicon.ico?v=23.07.02.2',
+        api_url: 'https://api-goerli-optimism.etherscan.io',
+        api_key: process.env.OPTIMISM_KEY,
+      },
+    },
+    platforms: {
+      coingeckoId: 'ethereum',
+      moralisId: 'eth',
+    },
+  },
 ]
